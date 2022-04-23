@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+</head>
+<body>
+    <img src="static/google.png" alt="">
+    <br>
+    <input type="text" name="" id="">
+    <button id="search" type="button">Search</button>
+    <input type="checkbox" placeholder="" name="" id="checkbox" checked="checked"><p style="letter-spacing: -0.5; display: inline; font-family: 'consolas';">Open new tab Press: CTRL to toggle</p>
+    <script>
+        const image = document.querySelector("img");
+        const input = document.querySelector("input");
+        const button = document.querySelector("button");
+        const checkbox = document.querySelector("#checkbox")
+        input.focus();
+        input.addEventListener("keyup", (event) => {
+            if (event.key == "Enter") {
+                button.click();
+            }
+        });
+        button.addEventListener("click", (event) => {
+            if (checkbox.checked) {
+                window.open(`https://www.google.com/search?q=${input.value}&oq=hello&aqs=chrome.0.69i59j46i67j0i67l2j46i199i465i512j0i512l4j46i512.1008j0j7&sourceid=chrome&ie=UTF-8`, "_blank").focus();
+            } else {
+                location = `https://www.google.com/search?q=${input.value}&oq=hello&aqs=chrome.0.69i59j46i67j0i67l2j46i199i465i512j0i512l4j46i512.1008j0j7&sourceid=chrome&ie=UTF-8`;
+            }
+        });
+        window.addEventListener("keyup", (event) => {
+            if (event.code == "ControlLeft") {
+                if (checkbox.checked) {
+                    checkbox.checked = false;
+                } else {
+                    checkbox.checked = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
